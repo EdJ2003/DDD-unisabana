@@ -1,22 +1,18 @@
 package com.example.DDDUnisabana.infrastructure.out.persistence.orm;
 import com.example.DDDUnisabana.domain.entity.Asignatura;
-import com.example.DDDUnisabana.domain.entity.Carrera;
 import com.example.DDDUnisabana.domain.entity.Estudiante;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import jakarta.persistence.*;
+
 import java.util.List;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
+@Table(name = "estudiantes")
 public class EstudianteORM {
 
     @Id
@@ -26,14 +22,21 @@ public class EstudianteORM {
     @Column
     private String nombre;
 
-    @Column
-    private Carrera carrera;
+    @ManyToOne
+    @JoinColumn(name = "carrera_id")
+    private CarreraORM carrera;
 
     @Column
     private int semestre;
 
-    @Column
-    private List<Asignatura> asignaturas;
+    @ManyToMany
+    @JoinTable(
+            name = "estudiante_asignatura",
+            joinColumns = @JoinColumn(name = "idEstudiante"),
+            inverseJoinColumns = @JoinColumn(name = "idAsignatura")
+    )
+    private List<AsignaturaORM> asignaturas;
+
 
     public Estudiante converToModel() {
         return new Estudiante(this.idEstudiante,this.nombre, this.carrera, this.semestre, this.asignaturas);

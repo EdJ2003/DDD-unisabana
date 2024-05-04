@@ -3,5 +3,5 @@ package com.example.DDDUnisabana.infrastructure.out.persistence.adapter.reposito
 import com.example.DDDUnisabana.infrastructure.out.persistence.orm.EstudianteORM;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EstudianteJRepository extends JpaRepository<EstudianteORM, Integer>{
+public interface EstudianteJRepository extends JpaRepository<EstudianteORM, Integer> {
 }

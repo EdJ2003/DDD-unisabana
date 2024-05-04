@@ -1,7 +1,8 @@
-package com.example.DDDUnisabana.infrastructure.out.persistence.orm;
-import com.example.DDDUnisabana.domain.entity.Asignatura;
-import com.example.DDDUnisabana.domain.entity.Estudiante;
+package com.example.DDDUnisabana.inscripcionAsignaturas.infrastructure.out.persistence.orm;
+import com.example.DDDUnisabana.inscripcionAsignaturas.domain.entity.Estudiante;
+import com.example.DDDUnisabana.inscripcionAsignaturas.domain.enums.Carrera;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
@@ -12,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Data
 @Table(name = "estudiantes")
 public class EstudianteORM {
 
@@ -22,9 +24,8 @@ public class EstudianteORM {
     @Column
     private String nombre;
 
-    @ManyToOne
-    @JoinColumn(name = "carrera_id")
-    private CarreraORM carrera;
+    @Column
+    private Carrera carrera;
 
     @Column
     private int semestre;
@@ -38,9 +39,6 @@ public class EstudianteORM {
     private List<AsignaturaORM> asignaturas;
 
 
-    public Estudiante converToModel() {
-        return new Estudiante(this.idEstudiante,this.nombre, this.carrera, this.semestre, this.asignaturas);
-    }
 
 
 }

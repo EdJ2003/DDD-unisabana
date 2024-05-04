@@ -1,4 +1,4 @@
-package com.example.DDDUnisabana.infrastructure.out.persistence.orm;
+package com.example.DDDUnisabana.inscripcionAsignaturas.infrastructure.out.persistence.orm;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

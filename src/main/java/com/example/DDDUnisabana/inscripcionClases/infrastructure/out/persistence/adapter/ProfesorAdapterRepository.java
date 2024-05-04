@@ -8,6 +8,8 @@ import com.example.DDDUnisabana.inscripcionClases.infrastructure.out.persistence
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @AllArgsConstructor
 public class ProfesorAdapterRepository implements ProfesorRepository {
@@ -15,8 +17,8 @@ public class ProfesorAdapterRepository implements ProfesorRepository {
     private final ProfesorJRepository profesorJRepository;
 
     @Override
-    public Profesor obtenerProfesor(int idProfesor) {
-        return null;
+    public List<ProfesorORM> obtenerProfesores() {
+        return profesorJRepository.findAll() ;
     }
 
     @Override

@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/clases")
 public class ClaseController {
 
-   // private final IRegistrarClase registrarClase;
+    private final IRegistrarClase registrarClase;
 
     @PostMapping("/registrar")
     public void crearClase(@RequestBody ClaseDTO claseDTO){
-        //registrarClase.registrarClase(claseDTO);
+        registrarClase.registrarClase(claseDTO);
     }
 
 }

@@ -15,5 +15,4 @@ public class Profesor {
 
     private int idProfesor;
     private String nombre;
-    private List<Clase> clases;
 }

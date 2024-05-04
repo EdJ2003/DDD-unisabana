@@ -1,5 +1,6 @@
 package com.example.DDDUnisabana.inscripcionClases.infrastructure.out.persistence.orm;
 
+import com.example.DDDUnisabana.inscripcionClases.domain.enums.EstadoClase;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +26,8 @@ public class ClaseORM
     @ManyToOne
     @JoinColumn(name = "idProfesor")
     private ProfesorORM profesor;
+
+    @Column
+    private EstadoClase estadoClase;
 
 }

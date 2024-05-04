@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 @Entity
 @Data
@@ -19,10 +18,8 @@ public class ProfesorORM {
     private int idProfesor;
 
     @Column
-    private int nombre;
+    private String nombre;
 
-    @OneToMany
-    private List<ClaseORM> clases;
 
 
 }

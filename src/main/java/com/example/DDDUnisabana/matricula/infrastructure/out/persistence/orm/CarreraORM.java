@@ -22,7 +22,7 @@ public class CarreraORM {
     // Si estás usando una relación bidireccional, puedes incluir la siguiente anotación y campo
     // Esto establece la relación inversa: una carrera tiene muchos estudiantes
     @OneToMany(mappedBy = "carrera")
-    private List<EstudianteORM> estudiantes;
+    private List<EstudianteMatriculaORM> estudiantes;
 
 
 }

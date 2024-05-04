@@ -1,5 +1,6 @@
 package com.example.DDDUnisabana.inscripcionClases.application.usecase;
 
+import com.example.DDDUnisabana.inscripcionClases.application.exceptions.RegistrarClaseException;
 import com.example.DDDUnisabana.inscripcionClases.application.port.in.IRegistrarClase;
 import com.example.DDDUnisabana.inscripcionClases.domain.entity.Clase;
 import com.example.DDDUnisabana.inscripcionClases.domain.repository.ClaseRepository;
@@ -21,7 +22,7 @@ public class RegistrarClasesUseCase implements IRegistrarClase {
             Clase clase = new Clase(claseDTO.codigoClase(), claseDTO.nombre(), claseDTO.creditos(), claseDTO.profesor(), claseDTO.estadoClase());
             claseRepository.registrarClase(clase);
         } catch (Exception e){
-            throw new NullPointerException();
+            throw new RegistrarClaseException(claseDTO.codigoClase(),claseDTO.nombre(),claseDTO.creditos(),claseDTO.profesor());
         }
 
     }

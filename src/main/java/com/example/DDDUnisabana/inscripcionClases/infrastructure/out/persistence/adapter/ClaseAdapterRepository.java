@@ -49,6 +49,8 @@ public class ClaseAdapterRepository implements ClaseRepository {
             clase.setEstadoClase(ClaseORM.getEstadoClase());
             claseJRepository.save(ClaseORM);
 
+            System.out.println(clase);
+
     }
 
 

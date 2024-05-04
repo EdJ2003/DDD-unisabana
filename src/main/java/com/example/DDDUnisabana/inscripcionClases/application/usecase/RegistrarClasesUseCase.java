@@ -18,7 +18,8 @@ public class RegistrarClasesUseCase implements IRegistrarClase {
 
     @Override
     public void registrarClase(ClaseDTO claseDTO) {
-        try {
+        try
+        {
             Clase clase = new Clase(claseDTO.codigoClase(), claseDTO.nombre(), claseDTO.creditos(), claseDTO.profesor(), claseDTO.estadoClase());
             claseRepository.registrarClase(clase);
         } catch (Exception e){

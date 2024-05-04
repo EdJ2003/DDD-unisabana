@@ -17,39 +17,19 @@ public class ClaseAdapterRepository implements ClaseRepository {
     private final ClaseJRepository claseJRepository;
 
 
-    @Override
-    public Clase obtenerClase(int codigoClase) {
-        Optional<ClaseORM> claseOptional = claseJRepository.findById(codigoClase);
-        if (claseOptional.isPresent())
-        {
-            ClaseORM ClaseORM = claseOptional.get();
-            Clase clase = new Clase();
-            clase.setCodigoClase(ClaseORM.getCodigoClase());
-            clase.setNombre(ClaseORM.getNombre());
-            clase.setCreditos(ClaseORM.getCreditos());
-            Profesor profesor = convertProfesor(clase.getProfesor());
-            clase.setProfesor(profesor);
-            clase.setEstadoClase(ClaseORM.getEstadoClase());
-            return clase;
-        }else{
-            return null;
-        }
-    }
 
     @Override
     public void registrarClase(Clase clase)
     {
-
-            ClaseORM ClaseORM = new ClaseORM();
-            clase.setCodigoClase(ClaseORM.getCodigoClase());
-            clase.setNombre(ClaseORM.getNombre());
-            clase.setCreditos(ClaseORM.getCreditos());
-            Profesor profesor = convertProfesor(clase.getProfesor());
-            clase.setProfesor(profesor);
-            clase.setEstadoClase(ClaseORM.getEstadoClase());
-            claseJRepository.save(ClaseORM);
-
-            System.out.println(clase);
+        ClaseORM ClaseORM = new ClaseORM();
+        clase.setCodigoClase(ClaseORM.getCodigoClase());
+        clase.setNombre(ClaseORM.getNombre());
+        clase.setCreditos(ClaseORM.getCreditos());
+        Profesor profesor = convertProfesor(clase.getProfesor());
+        clase.setProfesor(profesor);
+        clase.setEstadoClase(ClaseORM.getEstadoClase());
+        claseJRepository.save(ClaseORM);
+        System.out.println(clase);
 
     }
 
@@ -58,4 +38,5 @@ public class ClaseAdapterRepository implements ClaseRepository {
     {
         return new Profesor(profesor.getIdProfesor(), profesor.getNombre());
     }
+
 }
